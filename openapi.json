@@ -1,0 +1,462 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Documentation API",
+        "version": "1.0.11"
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "localhost:3000/api/v1"
+        }
+    ],
+    "tags" : [
+        {
+            "name" : "Auth",
+            "description" : "Find all about auth router here"
+        }
+    ],
+    "paths": {
+        "/auth/register" : {
+            "post": {
+                "tags" : ["Auth"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type" : "string"
+                                    },
+                                    "identity_type" : {
+                                        "type" : "string"
+                                    },
+                                    "identity_number" : {
+                                        "type": "string"
+                                    },
+                                    "address":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                },
+                                                "name":{
+                                                  "type":"string"
+                                                },
+                                                "profile": {
+                                                    "type": "object",
+                                                    "properties" : {
+                                                        "id": {
+                                                            "type": "number"
+                                                        },
+                                                        "identity_type" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "identity_number" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "address" : {
+                                                            "type": "string"
+                                                        },
+                                                        "user_id": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login" : {
+            "post": {
+                "tags" : ["Auth"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/authenticate" : {
+            "get": {
+                "tags" : ["Auth"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "name": {
+                                                  "type" : "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                }                    
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/register" : {
+            "post": {
+                "tags" : ["Bank Account"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "bank_name": {
+                                        "type": "string"
+                                    },
+                                    "bank_account_number": {
+                                        "type": "string"
+                                    },
+                                    "balence": {
+                                        "type" : "string"
+                                    },
+                                    "user" : {
+                                        "type" : "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "bank_name": {
+                                                    "type": "string"
+                                                },
+                                                "bank_account_number": {
+                                                    "type": "string"
+                                                },
+                                                "balence":{
+                                                  "type":"string"
+                                                },
+                                                "user": {
+                                                    "type": "object",
+                                                    "properties" : {
+                                                        "id": {
+                                                            "type": "number"
+                                                        },
+                                                        "identity_type" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "identity_number" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "address" : {
+                                                            "type": "string"
+                                                        },
+                                                        "user_id": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/accounts" : {
+            "get": {
+                "tags" : ["Bank Account"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "bank_name": {
+                                                  "type" : "string"
+                                                },
+                                                "bank_account_number": {
+                                                    "type": "string"
+                                                },
+                                                "balance": {
+                                                    "type": "string"
+                                                },
+                                                "user_id": {
+                                                    "type": "number"
+                                                }                   
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/account/:accountId" : {
+            "get": {
+                "tags" : ["Bank Account"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "bank_name": {
+                                                  "type" : "string"
+                                                },
+                                                "bank_account_number": {
+                                                    "type": "string"
+                                                },
+                                                "balance": {
+                                                    "type": "string"
+                                                },
+                                                "user_id": {
+                                                    "type": "number"
+                                                }                   
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transactions/create" : {
+            "post": {
+                "tags" : ["transaction"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "source_account": {
+                                        "type": "string"
+                                    },
+                                    "destination_account": {
+                                        "type": "string"
+                                    },
+                                    "amount":{
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "source_account": {
+                                                    "type": "string"
+                                                },
+                                                "destination_account":{
+                                                    "type":"string"
+                                                },
+                                                "amount":{
+                                                    "type":"number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transactions" : {
+            "get": {
+                "tags" : ["transaction"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "source_account_id": {
+                                                  "type" : "string"
+                                                },
+                                                "destination_account_id": {
+                                                    "type": "string"
+                                                },
+                                                "amount": {
+                                                    "type": "number"
+                                                }                  
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transaction/:transactionid":{
+            "get": {
+                "tags" : ["transaction"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "source_account_id": {
+                                                  "type" : "string"
+                                                },
+                                                "destination_account_id": {
+                                                    "type": "string"
+                                                },
+                                                "amount": {
+                                                    "type": "number"
+                                                }                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
